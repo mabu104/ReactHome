@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, useMemo } from 'react'
 import { Text, View, Button, StyleSheet, TextInput, Image, TouchableOpacity, Icon } from 'react-native';
 import logo from '../../src/images/logo.png';
 import { useNavigate, useLocation } from 'react-router-dom'
-import { FaUserAlt, FaUser, FaHome,FaPhoneAlt,FaRegEnvelope } from "react-icons/fa";
+import { FaUserAlt, FaUser, FaHome,FaPhoneAlt,FaEnvelope } from "react-icons/fa";
 import { UserContext } from '../contexts/UserContext';
 const urlLogin = 'http://192.168.1.7:8082/api/Users/Login'
 const urlSite = 'http://192.168.1.7:8082/api/sites/GetListSite/YALY1'
@@ -131,7 +131,7 @@ export default function Login() {
           <Text style={styles.infoText}></Text>
         </View>
         <View style={styles.infoContainer}>
-          <FaRegEnvelope style={styles.infoIcon} />
+          <FaEnvelope style={styles.infoIcon} />
           <Text style={styles.infoText}></Text>
         </View>
         <TouchableOpacity style={[{ marginTop: 40, width: 320, }]} onPress={onPressLogoutButton}>
@@ -260,8 +260,8 @@ const styles = StyleSheet.create({
   },
   infoIcon: {
     color: '#9ca3da',
-    height: 30,
-    width: 30,
+    height: 25,
+    width: 25,
     marginRight: 10,
     marginLeft: 10
   },
