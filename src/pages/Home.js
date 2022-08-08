@@ -3,6 +3,7 @@ import "./Home.css";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import vi from 'date-fns/locale/vi';
+
 registerLocale('vi', vi)
 
 export const Home = () => {
@@ -13,10 +14,11 @@ export const Home = () => {
   const [fromDate, setFromDate] = useState(new Date());
   const [toDate, setTotDate] = useState(new Date());
   const [value, setValue] = React.useState('fruit');
+
   return (
     <div className='App'>
       <div className='input-container'>
-        <a>Home</a>
+        <a>Home dfg</a>
         <span style={{ display: "block", width: 10 }}></span>
         <input className='text-input'
           type="text"

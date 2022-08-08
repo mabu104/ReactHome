@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect, useContext, useMemo } from 'react'
-import { Text, View, Button, StyleSheet, TextInput, Image, TouchableOpacity, Icon } from 'react-native';
+import { Text, View, Button, StyleSheet, TextInput, Image, TouchableOpacity, Icon,Picker } from 'react-native';
 import logo from '../../src/images/logo.png';
 import { useNavigate, useLocation } from 'react-router-dom'
-import { FaUserAlt, FaUser, FaHome,FaPhoneAlt,FaEnvelope } from "react-icons/fa";
+import { FaUserAlt, FaUser, FaHome, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { UserContext } from '../contexts/UserContext';
 const urlLogin = 'http://192.168.1.7:8082/api/Users/Login'
 const urlSite = 'http://192.168.1.7:8082/api/sites/GetListSite/YALY1'
@@ -18,6 +19,7 @@ export default function Login() {
   const [user, setUser] = useState(state.user)
 
   const [sites, setSites] = useState([])
+  const [value, setValue] = useState(null);
 
 
   const onPressLoginButton = () => fetchLogin()
@@ -74,7 +76,7 @@ export default function Login() {
   const getSite = (siteName) => {
     for (var i = 0; i < sites.length; i++) {
       if (sites[i].siteID == siteName) {
-        return { code: sites[i].siteID, id: sites[i].reC_SHOP, name: sites[i].shoP_NAME };
+        return { code: sites[i].siteID, recShop: sites[i].reC_SHOP, name: sites[i].shoP_NAME };
       }
     }
     return { code: '', id: 0, name: '' };
@@ -175,7 +177,22 @@ export default function Login() {
         placeholderTextColor="#555"
       //placeholderTextColor={'#aaa'}
       />
-      {/* <Sites sites={sites}  /> */}
+      {/* <select value={value} onChange={event => setValue(event.target.value)}>
+        {sites.map((option) => (
+          <option value={option.reC_SHOP}>{option.shoP_NAME}</option>
+        ))}
+      </select> */}
+      <Picker
+        selectedValue={value}
+        style={{ height: 50, width: 320,paddingHorizontal:10}}
+        onValueChange={(itemValue, itemIndex) => setValue(itemValue)}
+      >
+        {sites.map((p) => (
+          <Picker.Item value={p.reC_SHOP} label={p.shoP_NAME} />
+        ))}
+        {/* <Picker.Item label="Java" value="java" />
+        <Picker.Item label="JavaScript" value="js" /> */}
+      </Picker>
       <TouchableOpacity style={[{ marginTop: 70, width: 320, }]} onPress={onPressLoginButton}>
         <Text style={styles.loginButton}>
           Đăng Nhập
