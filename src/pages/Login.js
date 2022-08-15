@@ -11,8 +11,10 @@ const urlSite = '/api/sites/GetListSite/YALY1'
 
 export default function Login() {
   const { state, dispatch } = useContext(UserContext);
-  const [userName, onChangeUsername] = useState(state.userName)
-  const [password, onChangePassword] = useState(state.password)
+  // const [userName, onChangeUsername] = useState(state.userName)
+  // const [password, onChangePassword] = useState(state.password)
+  const [userName, onChangeUsername] = useState('y0017@abb.com')
+  const [password, onChangePassword] = useState('1')
   const [logged, setLogged] = useState(state.logged)
   const [site, setSite] = useState(state.site)
   const [user, setUser] = useState(state.user)
@@ -46,10 +48,10 @@ export default function Login() {
       const response = await axios.post(urlLogin, dt);
       if (response.status == 200) {
         let json = response.data;
-        if (json.status != 1) {
-          setText('Tài khoản hoặc mật khẩu không đúng');
-          return;
-        }
+        // if (json.status != 1) {
+        //   setText('Tài khoản hoặc mật khẩu không đúng');
+        //   return;
+        // }
         setLogged(true)
         var u = { name: json.name, no: json.no_, recSeller: json.rec_Seller, status: json.status }
         setUser(u)
@@ -142,7 +144,9 @@ export default function Login() {
           <option value={site.reC_SHOP} key={site.reC_SHOP}>{site.shoP_NAME}</option>
         ))}
       </select>
-      <button className='login-button' onClick={onPressLoginButton}>Đăng nhập</button>;
+      <button className='login-button' onClick={onPressLoginButton}>
+        Đăng nhập
+      </button>
       <p className='login-text'>{text}</p>
     </div>
   );

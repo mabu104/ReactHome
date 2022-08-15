@@ -18,10 +18,12 @@ import {
 }from "react-icons/ai";
 import { NavLink } from 'react-router-dom';
 import "./SideBar.css";
+import logo from '../../src/images/logo.png';
 
 const SideBar= ({children})=> {
-    const[isOpen ,setIsOpen] = useState(false);
-    const toggle = () => setIsOpen (!isOpen);
+    const [sidebar, setSidebar] = useState(false);
+    const showSidebar = () => setSidebar(!sidebar);
+
     const menuItem=[
         {
             path:"/",
@@ -54,12 +56,15 @@ const SideBar= ({children})=> {
     return (
         <div className="sidebar_container">
            <div  className="sidebar">
-               {/* <div className="top_section">
-                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
-                   <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
-                       <FaBars onClick={toggle}/>
+               <div className="top_section">
+                   {/* <h1 style={{display: sidebar ? "block" : "none"}} className="logo">Logo</h1> */}
+                   <img src={logo} className='logo' />
+                   <h1 className="name">Yaly Couture</h1>                  
+                   <div style={{marginLeft: sidebar ? "50px" : "0px"}} className="bars">
+                       <FaBars onClick={showSidebar}/>
                    </div>
-               </div> */}
+               </div>
+               <div className="divider"></div>
                {
                    menuItem.map((item, index)=>(
                        <NavLink to={item.path} key={index} className="link" >

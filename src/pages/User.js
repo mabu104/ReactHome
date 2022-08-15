@@ -39,7 +39,7 @@ export default function User() {
         <FaEnvelope className='info-icon' />
         <p className='info-text'></p>
       </div>
-      <button className='logout-button' onClick={onPressLogoutButton}>Đăng xuất</button>;
+      <button className='logout-button' onClick={onPressLogoutButton}>Đăng xuất</button>
     </div>   
   );
 }

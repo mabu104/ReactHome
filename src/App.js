@@ -34,7 +34,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/user" element={<User />} />
           </Route>
-          <Route path="/*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </UserContext.Provider>
     </Router >

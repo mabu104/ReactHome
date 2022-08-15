@@ -4,7 +4,6 @@ import "./Order.css"
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import vi from 'date-fns/locale/vi';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { UserContext } from '../contexts/UserContext';
 import { AiOutlineSearch } from "react-icons/ai";
 
@@ -56,31 +55,28 @@ const Order = () => {
     }
   }
   return (
-    <View style={styles.orderContainer}>
-      {/* <div className="app-container"> */}
-      <View style={[{ flexDirection: 'row' }]} >
-        <Text style={{ paddingTop: 5 }}>Từ ngày </Text>
-        <View>
+    <div className="order-container">
+      <div className="container-bar">
+        <div className="date-bar">
+          <p className='date-text'>Từ ngày </p>
           <DatePicker
             className='date-picker-container'
             selected={fromDate}
             locale="vi"
             dateFormat="dd/MM/yyyy"
             onChange={date => setFromDate(date)} />
-        </View>
-        <Text style={{ paddingTop: 5 }}>Đến ngày </Text>
-        <View>
+        </div>
+        <div className="date-bar">
+          <p className='date-text'>Đến ngày </p>
           <DatePicker
             className='date-picker-container'
             selected={toDate}
             locale="vi"
             dateFormat="dd/MM/yyyy"
             onChange={date => setTotDate(date)} />
-        </View>
-        <TouchableOpacity style={styles.button} onPress={search}>
-          <Text>Tìm</Text  >
-        </TouchableOpacity>
-      </View>
+        </div>
+        <button className='search-button' onClick={search}>Tìm</button>
+      </div>
       <table>
         <thead>
           <tr>
@@ -113,27 +109,10 @@ const Order = () => {
           ))}
         </tbody>
       </table>
-    </View>
+    </div>
+    //</View>
 
   );
 };
 export default Order;
-const styles = StyleSheet.create({
-  orderContainer: {
-    padding:5,
-    flex:1,
-    alignItems: 'center',
-  },
 
-  button: {
-    //borderRadius: 3,
-    borderWidth: 1,
-    borderColor: '#888',
-    backgroundColor: '#eee',
-    height: 20,
-    width: 60,
-    textAlign: 'center',
-    marginTop: 5
-  },
-
-});
