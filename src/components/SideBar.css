@@ -1,14 +1,30 @@
+.body-container{
+  display: flex;
+  flex-direction: column;
+  
+}
+.app-bar{
+  display: none;
+  height: 50px;
+  width: 100%;
+  background: #e2e4e6;
+  flex-direction: row;
+}
 .sidebar_container {
   display: flex;
-  width: 220px;
+  /* width: 220px; */
   /* background: #f1f; */
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .sidebar {
-  background: #fff;
+  /* background: #fff; */
   /* background: #565d94; */
+  /* background: #f2f4f6; */
+  background: #e2e4e6;
+  padding:0px 25px ;
   color: #000;
   height: 100vh;
   /* height: 100%; */
@@ -27,6 +43,11 @@
 .logo {
   height: 40px;
   width: 40px;
+  display: none;
+}
+.logo-app-bar {
+  height: 40px;
+  width: 40px;
 }
 
 .bars {
@@ -36,21 +57,26 @@
 }
 .name {
   display: flex;
-  font-size: 22px;
-  color: orangered;
+  font-size: 28px;
+  color: #f17434;
+}
+.name-app-bar {
+  display: flex;
+  font-size: 28px;
+  color: #f17434;
 }
 
 .divider{
   height: 1px;
   width: 100%;
-  background: #ddd;
+  background: #d7d7d7;
   /* margin-top: 20px; */
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .link {
   display: flex;
-  color: #000;
+  color: #222736;
   padding: 10px 10px;
   gap: 15px;
   transition: all 0.5s;
@@ -62,7 +88,7 @@
   /* background:#1a83ff; */
   /* background: #f58434; */
   /* background: #9ca3da; */
-  background: #111625;
+  background: #222736;
   color: #fff;
   transition: all 0.5s;
 }
@@ -70,11 +96,13 @@
 .active {
   /* background: #f58434; */
   /* background: #9ca3da; */
-  background: #111625;
+  background: #222736;
   color: #fff;
 }
 
-.icon,
+.icon {
+  font-size: 19px;
+}
 .link_text {
   font-size: 18px;
   font-family: Arial;
@@ -82,11 +110,13 @@
 
 @media screen  and (min-width: 400px) and (max-width: 960px){
   .sidebar {
-    /* background: #565d94; */
-    color: #fff;
-    height: 100vh;
     width: 50px;
-    /* transition: all 0.5s; */
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+  }
+  .link{
+    padding-left: 15px;
   }
   .link_text {
     font-size: 20px;
@@ -97,6 +127,11 @@
   }
   .name {
     display: none;
+  }
+  .logo {
+    height: 40px;
+    width: 40px;
+    display: block;
   }
 
 }
@@ -110,5 +145,11 @@
   .name {
     display: none;
   }
-
+  .app-bar{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    background: #e2e4e6;
+    flex-direction: row;
+  }
 }

@@ -1,9 +1,9 @@
 .order-container {
   display: flex;
   flex-direction: column;
+  /* padding: 5px; */
   flex: 1;
   height: 100vh;
-  background: #F0F2F4;
 }
 .container-bar{
   margin-top: 10px;

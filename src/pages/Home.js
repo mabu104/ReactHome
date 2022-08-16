@@ -16,7 +16,6 @@ const Home = () => {
 export default Home;
 const style = StyleSheet.create({
   imageStyle: {
-    flex: 1,
     width: '100%',
     height: '100%',
     maxWidth: 800,
