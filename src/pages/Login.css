@@ -15,6 +15,7 @@
     font-size: 20px;
     color: red;
     height: 20px;
+    padding-top: 10px;
 }
 
 .site-container {
@@ -58,6 +59,7 @@
     font-family: Roboto;
     background-color: #f17434;
     margin-top: 40px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 330px) {
